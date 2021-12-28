@@ -1,0 +1,17 @@
+from selenium import webdriver
+from bs4 import BeautifulSoup
+from pprint import pprint
+import time
+import requests
+from webdriver_manager.chrome import ChromeDriverManager
+from scrapy.selector import Selector # text to selectors
+
+url = 'https://us.kompass.com/searchCompanies?acClassif=&localizationCode=US_53_033&localizationLabel=King+County&localizationType=district&text=&searchType=SUPPLIER'
+wd= webdriver.Chrome(ChromeDriverManager().install())
+wd.get(url)
+
+response = wd.page_source
+
+url_list = ['https://us.kompass.com'+i for i in new_selector.css('div[class = "col col-title company-container"]>a::attr(href)').extract()]
+
+url_list
